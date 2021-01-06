@@ -1,0 +1,18 @@
+.cardLayout {
+    position: absolute;
+    left: 10%;
+    text-align: center;
+}
+
+.playerCards {
+    margin-top: 10px;
+}
+
+.dealerCards {
+    margin-top: 1px;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}

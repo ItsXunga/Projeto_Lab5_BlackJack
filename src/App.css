@@ -1,0 +1,80 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+.background {
+  background-image: url(background.jpg);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top:0;
+  left: 0;
+  filter: blur(5px);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: black;
+  z-index: -1;
+}
+
+.betMenu {
+  position: fixed;
+  bottom: 5%;
+  right: 5rem;
+  text-align: center;
+}
+
+.betInput {
+  height: 100px;
+  width: 300px;
+  text-align: center;
+  font-size: 20pt;
+  border-style: double;
+  border-width: 15px;
+  border-color: darkred;
+  border-radius: 50px;
+}
+
+.buttonWrapper {
+  margin-bottom: 10px;
+}
+
+.bankCredit {
+  color: white;
+  text-align: center;
+}
+
+.stay {
+  width: 70px;
+  height: 50px;
+  border-style: solid;
+  border-width: 15px;
+  border-color: darkred;
+  border-radius: 50px;
+}
+
+.stay:hover {
+  width: 100px;
+  height: 80px;
+  border-style: solid;
+  border-width: 15px;
+  border-color: darkgray;
+  border-radius: 50px;
+}
+
+.hit {
+  width: 70px;
+  height: 50px;
+  border-style: solid;
+  border-width: 15px;
+  border-color: darkred;
+  border-radius: 50px;
+}
+
+.hit:hover {
+  width: 100px;
+  height: 80px;
+  border-style: solid;
+  border-width: 15px;
+  border-color: black;
+  border-radius: 50px;
+}
