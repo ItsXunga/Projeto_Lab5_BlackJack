@@ -7,6 +7,7 @@ import {drawCardFromDeck} from "./components/Game/api";
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Navbar from './components/layout/Navbar'
 import SignIn from './components/auth/SignIn'
+import SignUp from './components/auth/SignUp'
 
 function App() {
     const [bankCredit, setBankCredit] = useState(10000);
@@ -40,6 +41,7 @@ function App() {
                     <Navbar/>
                     <Switch>
                         <Route path='/signin' component={SignIn}/>
+                        <Route path='/signup' component={SignUp}/>
                     </Switch>
                 </BrowserRouter>
 
