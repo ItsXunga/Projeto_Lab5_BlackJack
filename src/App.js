@@ -8,6 +8,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Navbar from './components/layout/Navbar'
 import SignIn from './components/auth/SignIn'
 import SignUp from './components/auth/SignUp'
+import Stats from './components/stats/Stats';
 
 function App() {
     const [bankCredit, setBankCredit] = useState(10000);
@@ -40,6 +41,7 @@ function App() {
                 <BrowserRouter>
                     <Navbar/>
                     <Switch>
+                        <Route path='/' component={Stats}/>
                         <Route path='/signin' component={SignIn}/>
                         <Route path='/signup' component={SignUp}/>
                     </Switch>
