@@ -4,6 +4,8 @@ import CardGameBoard from "./components/Game/CardGameBoard";
 import ButtonComponent from "./components/Game/ButtonComponent";
 import BetInput from "./components/Game/BetInput";
 import {drawCardFromDeck} from "./components/Game/api";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Navbar from './components/layout/Navbar'
 import SignIn from './components/auth/SignIn'
@@ -11,8 +13,19 @@ import SignUp from './components/auth/SignUp'
 import Stats from './components/stats/Stats';
 
 function App() {
+
     const [bankCredit, setBankCredit] = useState(10000);
     const [currentBet, setCurrentBet] = useState(0);
+
+    const notify = (lost) => {
+        if(lost) {
+            toast.error("You Lost!", {customID:"lost"});
+            toast.clearWaitingQueue();
+        } else {
+            toast.success("You Win!", {customID:"win"});
+            toast.clearWaitingQueue();
+        }
+    };
 
     const setBet = value => {
         let placeBet = bankCredit - value;
@@ -20,10 +33,11 @@ function App() {
         setCurrentBet(value);
     }
 
-    /*const onButtonClick = async ({target : {name:action}}) => {
-    const {value, image} = await drawCardFromDeck(deckId);
-    console.log(value, image);
-    }*/
+    const setWin = () => {
+        let win = bankCredit + (2*currentBet);
+        setBankCredit(win);
+        setCurrentBet(0);
+    }
 
     if(currentBet > 0) {
         return (
@@ -34,9 +48,9 @@ function App() {
                     <h2 className="bankCredit">Current Bet: ${currentBet}</h2>
                     <BetInput setBet={setBet}/>
                     <h2 className="bankCredit">Total Credit: ${bankCredit}</h2>
-
                 </div>
-                <CardGameBoard/>
+                <ToastContainer limit={1} position="top-center"/>
+                <CardGameBoard setBet={setBet} setWin={setWin} notify={notify}/>
                 
                 <BrowserRouter>
                     <Navbar/>
@@ -49,6 +63,7 @@ function App() {
 
 
             </div>
+
         );
     } else {
         return (
@@ -61,6 +76,7 @@ function App() {
                     <h2 className="bankCredit">Total Credit: ${bankCredit}</h2>
 
                 </div>
+                <ToastContainer limit={1} position="top-center"/>
             </div>
         )
     }

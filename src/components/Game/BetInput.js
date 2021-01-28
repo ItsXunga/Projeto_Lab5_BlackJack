@@ -18,3 +18,4 @@ const BetInput = ({setBet}) => {
 }
 
 export default BetInput;
+

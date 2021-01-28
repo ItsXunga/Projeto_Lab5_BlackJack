@@ -22,8 +22,8 @@ export const newDeck = async () => {
     return {cardResponse,deckId};
 };
 
-    export const drawCardFromDeck = (deckId) => {
-        const {data} = api.get(`${deckId}/draw/`, {
+    export const drawCardFromDeck = async (deckId) => {
+        const {data} = await api.get(`${deckId}/draw/`, {
         params: {
             count:1
         }
@@ -37,5 +37,3 @@ export const newDeck = async () => {
     export const shuffleDeck = (deckId) => {
         api.get(`${deckId}/shuffle/`)
     }
-
-
