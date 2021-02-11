@@ -17,23 +17,20 @@ class SignUp extends Component {
     }
     render() {
         return (
-            <div className="container">
-                <form onSubmit={this.handleSubmit} className="white">
-                    <h5 className="gey-text text-darken-5">Sign In</h5>
+            <div className="signup">
+                <form onSubmit={this.handleSubmit}>
+                    <h5 className="grey-text text-darken-5">Sign Up</h5>
                     <div className="input-field">
-                        <label htmlFor="email">Email</label>
-                        <input type="email" id="email" onChange={this.handleChange}/>
+                        <input type="email" id="email" className="signup_input" placeholder="Email" onChange={this.handleChange}/>
                     </div>
                     <div className="input-field">
-                        <label htmlFor="password">Password</label>
-                        <input type="password" id="password" onChange={this.handleChange}/>
+                        <input type="password" id="password" className="signup_input" placeholder="Password" onChange={this.handleChange}/>
                     </div>
                     <div className="input-field">
-                        <label htmlFor="name">Name</label>
-                        <input type="name" id="name" onChange={this.handleChange}/>
+                        <input type="name" id="name" className="signup_input" placeholder="Name" onChange={this.handleChange}/>
                     </div>
                     <div className="input-field">
-                        <button className="btn pink lighten-1 z-depth-0">Sign Up</button>
+                        <button className="btn z-depth-0">SIGN UP</button>
                     </div>
                 </form>
             </div>

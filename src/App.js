@@ -14,6 +14,8 @@ import Stats from './components/stats/Stats';
 
 function App() {
 
+    const user = null;
+
     const [bankCredit, setBankCredit] = useState(10000);
     const [currentBet, setCurrentBet] = useState(0);
 
@@ -39,6 +41,23 @@ function App() {
         setCurrentBet(0);
     }
 
+    if (user == null) {
+        return (
+            <div className="App">
+                <div className="background"/>
+                <BrowserRouter>
+                    <Navbar/>
+                    <Switch>
+                        <Route path='/signup' component={SignUp}/>   
+                        <Route path='/signin' component={SignIn}/>
+                    </Switch>
+                </BrowserRouter>
+
+            </div>
+        )
+
+    } else {
+        
     if(currentBet > 0) {
         return (
             <div className="App">
@@ -81,5 +100,8 @@ function App() {
         )
     }
 }
+
+    }
+
 
 export default App;
