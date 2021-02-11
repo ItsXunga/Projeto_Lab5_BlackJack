@@ -17,16 +17,17 @@ const store = createStore(rootReducer,
   getFirestore
   })),
   reduxFirestore(firebase),
-  reactReduxFirebase(firebase)
+  reactReduxFirebase(firebase, {attachAuthIsReady: true})
   )
   );
 
-
-ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}><App /></Provider>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+  store.firebaseAuthIsReady.then(() => {
+    ReactDOM.render(
+      <React.StrictMode>
+        <Provider store={store}><App /></Provider>
+      </React.StrictMode>,
+      document.getElementById('root')
+    );
+  })
 
 reportWebVitals();
