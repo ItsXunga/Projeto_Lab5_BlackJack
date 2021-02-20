@@ -7,7 +7,10 @@ class SignUp extends Component {
     state = {
         email: '',
         password: '',
-        name: ''
+        name: '',
+        money: 10000,
+        wins: 0,
+        defeats: 0,
     }
     handleChange = (e) => {
         this.setState({
