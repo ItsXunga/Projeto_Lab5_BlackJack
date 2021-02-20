@@ -6,10 +6,14 @@ import BetInput from "./components/Game/BetInput";
 import {drawCardFromDeck} from "./components/Game/api";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import firebase from './config/fbConfig';
+import { connect } from 'react-redux'
 
-function Game() {
+function Game(props) {
 
-    const [bankCredit, setBankCredit] = useState(10000);
+    console.log(props.profile.money);
+
+    const [bankCredit, setBankCredit] = useState(props.profile.money);
     const [currentBet, setCurrentBet] = useState(0);
 
     const notify = (lost) => {
@@ -67,4 +71,11 @@ function Game() {
 
     }
 
-export default Game;
+    const mapStateToProps = (state) => {
+        return {
+            auth: state.firebase.auth,
+            profile: state.firebase.profile
+        }
+    }
+
+export default connect(mapStateToProps)(Game);
