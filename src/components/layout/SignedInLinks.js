@@ -7,7 +7,7 @@ const SignedInLinks = (props) => {
     return (
         <ul className="navlinks">
             <li><NavLink to='/Game'>Game</NavLink></li>
-            <li><a onClick={props.signOut}>Log Out</a></li>
+            <li><NavLink to='/'><a onClick={props.signOut}>Log Out</a></NavLink></li>
             <li className="btn nav">Games Won: {props.profile.wins}</li>
             <li className="btn nav">Games Lost: {props.profile.defeats}</li>
             <li className="btn nav">Money: {props.profile.money}</li>
