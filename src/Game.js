@@ -28,6 +28,7 @@ function Game(props) {
 
     const setBet = value => {
         let placeBet = bankCredit - value;
+        firebase.firestore().collection('users').doc('IS2cNOSi2Kf7tDHNQ9mrvEMLt4G2').set({money: {placeBet}})
         setBankCredit(placeBet);
         setCurrentBet(value);
     }
