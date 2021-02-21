@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect} from 'react';
 import './App.css';
 import CardGameBoard from "./components/Game/CardGameBoard";
 import ButtonComponent from "./components/Game/ButtonComponent";
@@ -7,14 +7,38 @@ import {drawCardFromDeck} from "./components/Game/api";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import firebase from './config/fbConfig';
-import { connect } from 'react-redux'
 
-function Game(props) {
+function Game() {
 
-    console.log(props.profile.money);
+    const user = firebase.auth().currentUser;
+    const uid = user.uid;
 
-    const [bankCredit, setBankCredit] = useState(props.profile.money);
+    const [bankCredit, setBankCredit] = useState(null);
     const [currentBet, setCurrentBet] = useState(0);
+
+    useEffect(() => {
+        const currentMoney = firebase.firestore().collection("users").doc(uid);
+        currentMoney.get().then((doc) => {
+            const money = parseInt(doc.data().money);
+            if (doc.exists) {
+                setBankCredit(money);
+            } else {
+                console.log("No such document!");
+            }
+        }).catch((error) => {
+            console.log("Error getting document:", error);
+        });
+    }, []);
+
+    useEffect(() => {
+        if(bankCredit!==null) {
+            firebase.firestore().collection("users").doc(uid).update({
+                money: bankCredit,
+            });
+        }
+    }, [bankCredit]);
+
+
 
     const notify = (lost) => {
         if(lost) {
@@ -72,11 +96,4 @@ function Game(props) {
 
     }
 
-    const mapStateToProps = (state) => {
-        return {
-            auth: state.firebase.auth,
-            profile: state.firebase.profile
-        }
-    }
-
-export default connect(mapStateToProps)(Game);
+export default Game;
