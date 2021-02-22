@@ -10,11 +10,8 @@ const Navbar = (props) => {
     // console.log(auth)
     const links = auth.uid ? <SignedInLinks profile={profile}/> : <SignedOutLinks />;
     return (
-        <nav className="navMenu">
-            <div className="navlinks">
-                <Link to='/' className="brand-logo">BlackJack</Link>
+        <nav className="sidenav">
                 { links }
-            </div>
         </nav>                             
     )
 }

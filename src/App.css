@@ -20,6 +20,7 @@
   bottom: 5%;
   right: 5rem;
   text-align: center;
+  padding-right: 160px; /* Same as the width of the sidenav */
 }
 
 .betInput {
@@ -117,29 +118,6 @@
   margin-bottom: 0.5rem;
 }
 
-.navMenu {
-  position: fixed;
-  text-align: left;
-  right: 2rem;
-  font-size: 1.2rem;
-}
-
-ul.navlinks {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-a:link, a:visited, a:active {
-  text-decoration: none!important;
-  color: white;
-}
-
-a:hover {
-  color: darkred;
-}
-
 .title {
  color: white;
  background-color: none;
@@ -151,9 +129,64 @@ a:hover {
 }
 
 ul.title {
+  color: white;
   text-decoration: none;
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
+}
+
+.stats {
+  color: white;
+  font-size: 15px;
+  text-align: center;
+}
+
+.stats1 {
+ margin-top: 50px;
+}
+
+.sidenav {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+  
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.navItems{
+  text-decoration: none;
+  list-style: none;
+  position: fixed;
+  padding-left: 0;
+}
+
+.navcontent a {
+  padding: 6px 8px 6px 16px;
+}
+
+.name{
+  padding: 6px 8px 0px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #f1f1f1;
+  display: block;
 }

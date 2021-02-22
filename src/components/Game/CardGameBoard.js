@@ -3,7 +3,6 @@ import {newDeck, drawCardFromDeck} from "./api";
 import Cardback from "./cardback.png";
 import cardHandle from './cardHandle';
 import './CardGameBoard.css';
-import compareValues from "./cardHandle";
 import ButtonComponent from "./ButtonComponent";
 
 const CardGameBoard = ({setBet, setWin,notify}) => {
@@ -111,6 +110,7 @@ const CardGameBoard = ({setBet, setWin,notify}) => {
                     if(lost) {
                         setTimeout(() => {setBet(0);}, 2000);
                         notify(lost);
+
                     }
                     return (
                         <div className='cardLayout'>
@@ -468,7 +468,6 @@ const CardGameBoard = ({setBet, setWin,notify}) => {
                             sumDealerState1 = 0;
                             notify(lost);
                             setWin();
-
                         }
 
                         return (
@@ -589,7 +588,6 @@ const CardGameBoard = ({setBet, setWin,notify}) => {
                             notify(lost);
                             setWin();
                             sumDealerState2 = 0;
-
                         }
 
                         return (
@@ -678,7 +676,6 @@ const CardGameBoard = ({setBet, setWin,notify}) => {
                             sumDealerState3 = 0;
                             notify(lost);
                             setWin();
-
                         }
 
                         return (
@@ -713,7 +710,6 @@ const CardGameBoard = ({setBet, setWin,notify}) => {
                             sumDealerState3 = 0;
                             notify(lost);
                             setWin();
-
                         }
 
                         return (
@@ -784,7 +780,6 @@ const CardGameBoard = ({setBet, setWin,notify}) => {
                             sumDealerState3 = 0;
                             notify(lost);
                             setWin();
-
                         }
 
                         return (
