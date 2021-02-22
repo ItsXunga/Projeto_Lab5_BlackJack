@@ -140,9 +140,20 @@ a:hover {
   color: darkred;
 }
 
-.stats {
-  position: fixed;
-  right: 30rem;
-  top: 30rem;
-  font-size: 1.2rem;
+.title {
+ color: white;
+ background-color: none;
+ background: none;
+ position: fixed;
+ left: 46%;
+ text-align: center;
+ font-size: 1.2rem;
+}
+
+ul.title {
+  text-decoration: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }

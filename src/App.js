@@ -1,10 +1,5 @@
 import React, {useState} from 'react';
 import './App.css';
-import CardGameBoard from "./components/Game/CardGameBoard";
-import ButtonComponent from "./components/Game/ButtonComponent";
-import BetInput from "./components/Game/BetInput";
-import {drawCardFromDeck} from "./components/Game/api";
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Navbar from './components/layout/Navbar'
@@ -17,9 +12,14 @@ function App() {
 
     const user = firebase.auth().currentUser;
 
-    if (user != null) {
+    if (user !== null) {
         return (
                 <BrowserRouter>
+                <div className="background"/>
+                <ul className="title">
+                    <li className="titleLink">BlackJack</li>
+                    <li className="titleLink">Ivo Martins & Miguel Coutinho</li>
+                </ul>
                     <Navbar/>
                     <Switch>
                         <Route path='/game' component={Game}/>
@@ -32,6 +32,10 @@ function App() {
         return (
             <div className="App">
                 <div className="background"/>
+                <ul className="title">
+                    <li>BlackJack</li>
+                    <li>Ivo Martins & Miguel Coutinho</li>
+                </ul>
                 <BrowserRouter>
                     <Navbar/>
                     <Switch>

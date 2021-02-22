@@ -35,7 +35,7 @@ function Game() {
             firebase.firestore().collection("users").doc(uid).update({
                 money: bankCredit,
             });
-        }
+        }   
     }, [bankCredit]);
 
 
@@ -66,7 +66,6 @@ function Game() {
     if(currentBet > 0) {
             return (
                 <div className="App">
-                    <div className="background"/>
                     <div className="betMenu">
     
                         <h2 className="bankCredit">Current Bet: ${currentBet}</h2>
@@ -81,9 +80,8 @@ function Game() {
         } else {
             return (
                 <div className="App">
-                    <div className="background"/>
                     <div className="betMenu">
-    
+                        
                         <h2 className="bankCredit">Current Bet: ${currentBet}</h2>
                         <BetInput setBet={setBet}/>
                         <h2 className="bankCredit">Total Credit: ${bankCredit}</h2>

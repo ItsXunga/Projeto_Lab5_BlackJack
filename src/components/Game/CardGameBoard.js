@@ -5,7 +5,6 @@ import cardHandle from './cardHandle';
 import './CardGameBoard.css';
 import compareValues from "./cardHandle";
 import ButtonComponent from "./ButtonComponent";
-import moneyHandle from "./moneyHandle";
 
 const CardGameBoard = ({setBet, setWin,notify}) => {
     const [{cardFace0, cardValue0, cardFace1, cardValue1, cardFace2, cardValue2, cardFace3, cardValue3, cardFace4, cardValue4, cardFace5, cardValue5, cardFace6, cardValue6, cardFace7, cardValue7, cardFace8, cardValue8, cardFace9, cardValue9}, setCardState] = useState({
